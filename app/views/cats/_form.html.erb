@@ -1,0 +1,58 @@
+<% male_selected =   (!cat.nil? && cat.sex) == "M" ? "checked" : ""%>
+<% female_selected = (!cat.nil? && cat.sex) == "F" ? "checked" : ""%>
+
+<% if cat.persisted? %>
+<form action="<%=cats_url(cat)%>" method="POST">
+  <input name="_method" type="hidden" value="PATCH" />
+<% else %>
+  <form action="<%=cats_url%>" method="POST">
+<% end %> 
+s 
+  <label for="cat_name">First name</label>
+  <input name="cat[name]" id="cat_name" type="text" value="<%= cat.name %>">
+  <br>
+  
+  <label for="cat_age">Age</label>
+  <input name="cat[age]" id="cat_age" type="number" value="<%= cat.age %>">
+  <br>
+  
+  <label>Sex</label>
+    <input name="cat[sex]" 
+           id="cat_sex_m" 
+           type="radio" 
+           value="m" 
+           <%= male_selected %>
+           >
+    <label for="cat_sex_m">Male</label>
+    <input name="cat[sex]" 
+           id="cat_sex_f" 
+           type="radio" 
+           value="f"
+           <%= female_selected %>
+           >
+    <label for="cat_sex_f">Female</label>
+  <br>
+  
+  <label for="cat_description">Description</label>
+  <textarea name="cat[description]" id="cat_description"><%= cat.description %></textarea>
+  <br>
+  
+  <label for="cat_color">Color</label>
+  <select name="cat[color]">
+    
+    <option value="null"></option>
+    <% Cat::COLORS.each do |color| %>
+      <option value="<%= color %>" 
+              <%= "selected" if color == cat.color%>
+              ><%= color.capitalize %>
+      </option>
+    <% end %>
+    
+  </select>
+  <br>
+
+  <label for="cat_birth_date">Birth date</label>
+  <input name="cat[birth_date]" id="cat_birth_date" type="date" value="<%= cat.birth_date%>"></input>
+
+  <input type="submit" value="<%= submit_button_text %>">
+</form>

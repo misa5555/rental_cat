@@ -1,0 +1,8 @@
+<h2>Update cat form</h2>
+<form action="<%=action_url%>" method="POST">
+  <input name="_method" type="hidden" value="PATCH" />
+  
+<%= render "form",
+      cat: @cat,
+      submit_button_text: "Update your Cat!"
+%>
