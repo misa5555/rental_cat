@@ -9,6 +9,8 @@ class Cat < ActiveRecord::Base
   
   before_validation :upcase_sex
   
+  has_many :cat_rental_requests
+  
   private
   def upcase_sex
     sex.upcase! unless sex.nil?

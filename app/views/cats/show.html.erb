@@ -4,9 +4,10 @@
   <tr>
     <td>age</td>
     <td>birth date</td>
-    <td> color</td>
+    <td>color</td>
     <td> sex </td>
     <td> description </td>
+ 
   </tr>
   <tr>
     <td><%= @cat.age %></td>
@@ -16,3 +17,10 @@
     <td><%= @cat.description %></td>
   </tr>
 </table>
+
+<h3>reservations</h3>
+<ul>
+    <% @requests.each do |request| %>
+    <li> <%= request.start_date %>-<%= request.end_date %> 
+    <%end%>
+</ul>    

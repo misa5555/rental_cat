@@ -1,0 +1,7 @@
+<% cat = request.cat %>
+<ul>
+  <li><a href="<%= cat_url(cat) %>"><%= cat.name %></a>
+  <li><%= request.start_date %>
+  <li><%= request.end_date %>
+  <li><a href="<%= cat_rental_request_url(request) %>">Show Request</a>
+</ul>
