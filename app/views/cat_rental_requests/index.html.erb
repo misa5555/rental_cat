@@ -2,9 +2,9 @@
 
 <ul>
   <% @requests.each do |request| %>
-    <li>
-      <%= render "show", request: request %>
-    </li>
+    <ul>
+      <%= render "show_full", request: request %>
+    </ul>
   <% end %>
 </ul>
 

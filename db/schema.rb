@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140826204419) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "cat_rental_requests", force: true do |t|
     t.integer  "cat_id",                         null: false
     t.date     "start_date",                     null: false
@@ -25,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140826204419) do
     t.datetime "updated_at"
   end
 
-  add_index "cat_rental_requests", ["cat_id"], name: "index_cat_rental_requests_on_cat_id", using: :btree
+  add_index "cat_rental_requests", ["cat_id"], name: "index_cat_rental_requests_on_cat_id"
 
   create_table "cats", force: true do |t|
     t.integer  "age"

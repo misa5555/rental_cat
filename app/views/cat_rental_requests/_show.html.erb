@@ -1,8 +1,7 @@
-<% cat = request.cat %>
-<ul>
-  <li><a href="<%= cat_url(cat) %>"><%= cat.name %></a>
-  <li><%= request.start_date %>
-  <li><%= request.end_date %>
-  <li><%= request.status %>
- 
-</ul>
+<li><%= request.start_date %>
+<li><%= request.end_date %>
+
+<% if request.pending? %>
+  <%= button_to "Approve", approve_url(request), class: :button, method: :post %>
+  <%= button_to "Deny", deny_url(request), class: :button, method: :post %>
+<% end %>

@@ -1,3 +1,7 @@
 <h1>Edit your Rental Request</h1>
 
-<%= render "form", request: @request, cats: @cats %>
+<%= render "form", 
+  request: @request, 
+  cats: @cats, 
+  selected_d: @request.cat.id
+%>

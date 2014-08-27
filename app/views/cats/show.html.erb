@@ -1,32 +1,17 @@
 <h1><%= @cat.name %></h1>
 
-<table>
-  <tr>
-    <td>age</td>
-    <td>birth date</td>
-    <td>color</td>
-    <td> sex </td>
-    <td> description </td>
-  </tr>
-  <tr>
-    <td><%= @cat.age %></td>
-    <td><%= @cat.birth_date %></td>
-    <td><%= @cat.color %></td>
-    <td><%= @cat.sex %></td>
-    <td><%= @cat.description %></td>
-  </tr>
-</table>
+<p>
+  This is <%= @cat.name %>, <%= (@cat.sex == "M") ? "he" : "she" %> is a
+  <%= @cat.color %> colored cat, who is <%= @cat.age %> years old.
+  <%= @cat.description %>
+</p>
+
+<%= link_to "Rent this Kitty!", new_cat_cat_rental_request_url(@cat) %>
+<br>
 
 <h3>reservations</h3>
 <ul>
-    <% @requests.each do |request| %>
-    <li> <%= request.start_date %> - <%= request.end_date %>
-      <% if request.pending? %>
-        <%= button_to "Approve", approve_url(request), class: :button, method: :post %>
-        <%= button_to "Deny", deny_url(request), class: :button, method: :post %>
-      <% end %>
-    <%end%>
+  <% @requests.each do |request| %>
+    <%= render "cat_rental_requests/show", request: request %>
+  <%end%>
 </ul>
-<%= link_to "Rent him!", new_cat_rental_request_url  %>
-<br>
-<%= link_to "back to cat list", cats_url  %>

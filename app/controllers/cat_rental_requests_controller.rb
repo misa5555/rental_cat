@@ -12,6 +12,7 @@ class CatRentalRequestsController < ApplicationController
   def new
     @request = CatRentalRequest.new
     @cats = Cat.all
+    @cat_id = params[:cat_id]
   end
   
   def create

@@ -13,9 +13,10 @@
   <select name="cat_rental_request[cat_id]">
     <option value="null"></option>
     <% cats.each do |cat| %>
-      <option value="<%= cat.id %>" 
-              <%= "selected" if cat.id == request.cat_id %>
-              ><%= cat.name.capitalize %>
+      <% selected = (cat.id == selected_id.to_i) ? "selected" : "" %>
+      
+      <option value="<%= cat.id %>" <%= selected %>>
+        <%= cat.name.capitalize %>
       </option>
     <% end %> 
   </select>

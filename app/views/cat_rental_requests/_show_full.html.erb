@@ -1,0 +1,5 @@
+<% cat = request.cat %>
+
+<li><a href="<%= cat_url(cat) %>"><%= cat.name %></a>
+<%= render "show", request: request %>
+<li><%= request.status %>
