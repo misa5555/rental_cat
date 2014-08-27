@@ -32,8 +32,6 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.2.0.1)
-      sass (~> 3.2)
     builder (3.1.4)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -62,6 +60,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.10.1)
+    pg (0.17.1)
     polyglot (0.3.5)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -130,10 +129,10 @@ DEPENDENCIES
   awesome_print
   better_errors (= 1.1.0)
   binding_of_caller
-  bootstrap-sass
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
+  pg
   pry-rails
   quiet_assets
   rails (= 4.0.2)
