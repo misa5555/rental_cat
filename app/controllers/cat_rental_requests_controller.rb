@@ -31,6 +31,26 @@ class CatRentalRequestsController < ApplicationController
     render :edit
   end
   
+  def approve
+    @request = CatRentalRequest.find(params[:id])
+    
+    if @request.approve!
+      redirect_to cat_rental_request_url(@request)
+    else
+      render :index
+    end
+  end
+  
+  def deny
+    @request = CatRentalRequest.find(params[:id])
+    
+    if @request.deny!
+      redirect_to cat_rental_request_url(@request)
+    else
+      render :index
+    end
+  end    
+  
   private
   def request_params
     params.require(:cat_rental_request).permit(

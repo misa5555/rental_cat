@@ -5,3 +5,9 @@
     <li><a href="<%= cat_url(cat) %>"><%= cat.name %></a>    
   <% end %>
 </ul>
+
+<%= link_to "Request favorite cat!", new_cat_rental_request_url %>
+<br>
+<%= link_to "Register your cat",  new_cat_url %>
+<br>
+<%= link_to "Manager page(manager only)",  cat_rental_requests_url %>

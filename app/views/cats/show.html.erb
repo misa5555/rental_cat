@@ -7,7 +7,6 @@
     <td>color</td>
     <td> sex </td>
     <td> description </td>
- 
   </tr>
   <tr>
     <td><%= @cat.age %></td>
@@ -21,6 +20,12 @@
 <h3>reservations</h3>
 <ul>
     <% @requests.each do |request| %>
-    <li> <%= request.start_date %>-<%= request.end_date %> 
+    <li> <%= request.start_date %> - <%= request.end_date %>
+      <% if request.pending? %>
+        <%= button_to "Approve", approve_url(request), class: :button, method: :post %>
+        <%= button_to "Deny", deny_url(request), class: :button, method: :post %>
+      <% end %>
     <%end%>
-</ul>    
+</ul>
+
+<%= link_to "back to cat list", cats_url  %>

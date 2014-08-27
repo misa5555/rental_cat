@@ -11,3 +11,40 @@
  *= require_self
  *= require_tree .
  */
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background-image: url(http://pubpages.unh.edu/~chf34/projectcat.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  height: 100%;
+  width: 65%;
+  margin: 0 auto;
+  background-color: rgba(0,0,0,0.5);
+  color: moccasin;
+  padding: 40px;
+}
+
+li {
+  margin: 10px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
