@@ -1,11 +1,5 @@
 <h1>Cat Rental Requests</h1>
 
-<ul>
-  <% @requests.each do |request| %>
-    <ul>
-      <%= render "show_full", request: request %>
-    </ul>
-  <% end %>
-</ul>
+<%= render "show_full", requests: @requests %>
 
-<%= link_to "Request a Cat", new_cat_rental_request_url(@request) %>
+<%= link_to "Request a Cat", new_cat_rental_request_url %>

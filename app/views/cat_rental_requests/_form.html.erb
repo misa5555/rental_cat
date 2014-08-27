@@ -9,7 +9,12 @@
 
 
   <label for="request_cat_name">Cat name</label>
- 
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
+
   <select name="cat_rental_request[cat_id]">
     <option value="null"></option>
     <% cats.each do |cat| %>

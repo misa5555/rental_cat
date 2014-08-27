@@ -7,6 +7,9 @@ RentalCats::Application.routes.draw do
 
   resources :cat_rental_requests
 
+  resources :users
+  resources :session, only: [ :new, :create, :destroy ]
+  
   post "/cat_rental_requests/:id/approve", to: "cat_rental_requests#approve", as: :approve
   post "/cat_rental_requests/:id/deny", to: "cat_rental_requests#deny", as: :deny
 end

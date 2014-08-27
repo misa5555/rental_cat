@@ -1,5 +1,10 @@
-<% cat = request.cat %>
-
-<li><a href="<%= cat_url(cat) %>"><%= cat.name %></a>
-<%= render "show", request: request %>
-<li><%= request.status %>
+<table>
+  <% requests.each do |request| %>
+    <% cat = request.cat %>
+    <tr>
+      <td><a href="<%= cat_url(cat) %>"><%= cat.name %></td>
+      <td><%= request.status %></td>
+      <%= render "cat_rental_requests/show", request: request %>
+    </tr>
+  <% end %>
+</table>

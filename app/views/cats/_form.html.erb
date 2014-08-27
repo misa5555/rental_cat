@@ -1,11 +1,16 @@
 
 <% if cat.persisted? %>
-<form action="<%=cats_url(cat)%>" method="POST">
+<form action="<%=cat_url(cat)%>" method="POST">
   <input type="hidden" name="_method" value="PATCH" />
 <% else %>
 <form action="<%=cats_url%>" method="POST">
 <% end %> 
 
+
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
   <label for="cat_name">First name</label>
   <input name="cat[name]" id="cat_name" type="text" value="<%= cat.name %>">
   <br>

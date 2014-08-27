@@ -1,3 +1,7 @@
+users = ["Alice", "kelly", "misa", "appacademystudent", "bob"].map do |names|
+  User.create!(username: names, password: "password")
+end
+
 stats = {
   Zoba: {
     color: :black,
@@ -51,7 +55,8 @@ cats = stats.keys.map do |name|
     birth_date: birth,
     age: age,
     sex: stats[name][:sex],
-    description: stats[name][:description]
+    description: stats[name][:description],
+    user_id: users.sample.id
   )
 end
 
@@ -62,6 +67,7 @@ rentals = 45.times do |n|
   CatRentalRequest.create!(
     cat_id: cats.sample.id,
     start_date: start_date,
-    end_date: end_date
+    end_date: end_date,
+    user_id: users.sample.id
   )
 end

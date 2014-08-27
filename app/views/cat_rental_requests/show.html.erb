@@ -1,4 +1,7 @@
 <h1>Rental Request</h1>
-<%= render "show", request: @request %>
+<%= render "show", 
+  request: @request,
+  selected_id: @request.cat_id
+%>
 
 <%= link_to "Edit your Rental", edit_cat_rental_request_url(@request) %>

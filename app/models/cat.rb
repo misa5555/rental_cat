@@ -11,6 +11,13 @@ class Cat < ActiveRecord::Base
   
   has_many :cat_rental_requests
   
+  belongs_to( 
+    :owner,
+    class_name: "User",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+  
   private
   def upcase_sex
     sex.upcase! unless sex.nil?

@@ -1,4 +1,7 @@
 class CatRentalRequestsController < ApplicationController
+  before_action :require_login!, only: [ :approve, :deny ]
+  before_action :require_owner!, only: [ :approve, :deny ]
+  
   
   def index
     @requests = CatRentalRequest.all
@@ -6,6 +9,7 @@ class CatRentalRequestsController < ApplicationController
   
   def show
     @request = CatRentalRequest.find(params[:id])
+    @cat = @request.cat
     render :show
   end
   
@@ -19,6 +23,7 @@ class CatRentalRequestsController < ApplicationController
     @request = CatRentalRequest.new(request_params)
     @cats = Cat.all
     
+    @request.user_id = current_user.id
     if @request.save!
       redirect_to cat_rental_request_url(@request)
     else
@@ -53,6 +58,16 @@ class CatRentalRequestsController < ApplicationController
   end    
   
   private
+   
+  def require_owner!
+    request = CatRentalRequest.find(params[:id])
+    
+    if current_user.id != request.cat.owner.id
+      flash[:errors] = [ "You must be the owner to approve/deny!" ]
+      redirect_to cat_url(request.cat)
+    end
+  end
+  
   def request_params
     params.require(:cat_rental_request).permit(
       :cat_id, :start_date, :end_date, :status

@@ -12,8 +12,5 @@
 <br>
 
 <h3>reservations</h3>
-<ul>
-  <% @requests.each do |request| %>
-    <%= render "cat_rental_requests/show", request: request %>
-  <%end%>
-</ul>
+
+<%= render "cat_rental_requests/show_full", requests: @requests %>

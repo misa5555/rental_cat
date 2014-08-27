@@ -1,7 +1,10 @@
-<li><%= request.start_date %>
-<li><%= request.end_date %>
+<td><%= request.user.username %></td>
+<td><%= request.start_date %></td>
+<td><%= request.end_date %></td>
 
+<td>
 <% if request.pending? %>
   <%= button_to "Approve", approve_url(request), class: :button, method: :post %>
   <%= button_to "Deny", deny_url(request), class: :button, method: :post %>
 <% end %>
+</td>
