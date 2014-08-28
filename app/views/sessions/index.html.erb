@@ -1,0 +1,16 @@
+<table>
+<% @sessions.each do |user_session| %>
+  <tr>
+    <td><%= user_session.created_at %></td>
+    <td><%= user_session.ip_address %></td>
+    <td><%= user_session.http_user_agent %></td>
+    <td><%= user_session.address %></td>
+    <td>
+      <%= button_to "destroy session", 
+          logout_remote_url(user_session.id), 
+          method: :delete 
+          %>
+    </td>
+  </tr>
+<% end %>
+</table>

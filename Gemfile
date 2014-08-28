@@ -41,3 +41,5 @@ group :development do
   gem 'quiet_assets'
   gem 'awesome_print'
 end
+
+gem 'geocoder'
